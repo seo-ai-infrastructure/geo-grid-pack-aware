@@ -130,7 +130,7 @@ export default function ScanView() {
                 ? `<video controls playsinline width="100%" height="100%" style="object-fit:cover;width:100%;height:100%;display:block;background:#000;" preload="metadata">
                     <source src="${videoSrc}" type="video/mp4">
                   </video>`
-                : `<span style="color:#64748b;font-size:11px;padding:12px;text-align:center;">90s screen recording processing…</span>`}
+                : `<span style="color:#64748b;font-size:11px;padding:12px;text-align:center;">90s screen recording processing…<br><span style="font-size:10px;opacity:0.7;">No audio (Android screenrecord)</span></span>`}
             </div>
 
             <!-- Home Indicator Bar -->

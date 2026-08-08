@@ -55,3 +55,17 @@ alter table public.scan_points add column if not exists raw_finder jsonb;
 alter table public.scan_points add column if not exists pack_has_ad boolean;
 alter table public.scan_points add column if not exists video_url text;
 alter table public.scan_points add column if not exists video_path text;
+alter table public.scan_points add column if not exists video_error text;
+
+-- Supabase Storage bucket for grid point screen recordings (run once in SQL Editor)
+insert into storage.buckets (id, name, public)
+values ('geogrid-videos', 'geogrid-videos', true)
+on conflict (id) do update set public = true;
+
+create policy if not exists "Public read geogrid videos"
+on storage.objects for select
+using (bucket_id = 'geogrid-videos');
+
+create policy if not exists "Service role upload geogrid videos"
+on storage.objects for insert
+with check (bucket_id = 'geogrid-videos');
