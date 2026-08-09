@@ -1,0 +1,3731 @@
+{
+  "config": [
+    {
+      "key": "search_term",
+      "value": "car accident lawyer miami beach",
+      "type": "string",
+      "required": true,
+      "desc": ""
+    },
+    {
+      "key": "gbp_name",
+      "value": "South Beach Auto Accident Attorney",
+      "type": "string",
+      "required": true,
+      "desc": ""
+    },
+    {
+      "key": "grid_label",
+      "value": "A1",
+      "type": "string",
+      "required": true,
+      "desc": ""
+    },
+    {
+      "key": "grid_webhook",
+      "value": "https://geo-grid-rose.vercel.app/api/collect?token=PASTE_SCAN_TOKEN_FOR_MANUAL_TEST",
+      "type": "string",
+      "required": true,
+      "desc": "Manual test: paste the real scan token from Supabase (scans.token) into the URL."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "1",
+      "type": "START",
+      "position": {
+        "x": 260,
+        "y": 0
+      },
+      "data": {
+        "action": "START",
+        "exception_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 50
+      }
+    },
+    {
+      "id": "2",
+      "type": "OPEN_APP",
+      "position": {
+        "x": 520,
+        "y": 0
+      },
+      "data": {
+        "action": "OPEN_APP",
+        "app_package": "com.android.chrome",
+        "package_name": "com.android.chrome",
+        "uri": "",
+        "desc": "Open Chrome",
+        "exception_type": "2",
+        "exception_notify": "2",
+        "wait_before": "0",
+        "wait_after": "4000"
+      },
+      "measured": {
+        "width": 196,
+        "height": 94
+      }
+    },
+    {
+      "id": "4",
+      "type": "CLICK_ELEMENT",
+      "position": {
+        "x": 1040,
+        "y": 0
+      },
+      "data": {
+        "action": "CLICK_ELEMENT",
+        "save_result": "",
+        "desc": "Tap omnibox (B)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "2",
+        "exception_notify": "2",
+        "selector_bean_list": [
+          {
+            "fullId": "com.android.chrome:id/url_bar"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "1000",
+        "wait_after": "1500",
+        "fixed_value": "1",
+        "operator": "",
+        "number": ""
+      },
+      "measured": {
+        "width": 196,
+        "height": 94
+      }
+    },
+    {
+      "id": "6",
+      "type": "INPUT_CONTENT",
+      "position": {
+        "x": 0,
+        "y": 140
+      },
+      "data": {
+        "action": "INPUT_CONTENT",
+        "save_result": "",
+        "desc": "Type keyword (B)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "2",
+        "exception_notify": "2",
+        "selector_bean_list": [
+          {
+            "fullId": "com.android.chrome:id/url_bar"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "1000",
+        "wait_after": "1200",
+        "fixed_value": "1",
+        "operator": "",
+        "number": "",
+        "content_type": "all_pick",
+        "input_content": "${search_term}"
+      },
+      "measured": {
+        "width": 196,
+        "height": 94
+      }
+    },
+    {
+      "id": "7",
+      "type": "KEYBOARD_OPERATION",
+      "position": {
+        "x": 260,
+        "y": 140
+      },
+      "data": {
+        "action": "KEYBOARD_OPERATION",
+        "keyboard_key": "enter",
+        "desc": "Enter -> SERP",
+        "exception_type": "2",
+        "exception_notify": "2",
+        "wait_after": "7000",
+        "wait_before": "800"
+      },
+      "measured": {
+        "width": 196,
+        "height": 94
+      }
+    },
+    {
+      "id": "8",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 520,
+        "y": 140
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_1",
+        "desc": "SERP wide harvest #1 (TextView ordinal)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "1",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "9",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 780,
+        "y": 140
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_2",
+        "desc": "SERP wide harvest #2 (TextView ordinal)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "2",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "10",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1040,
+        "y": 140
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_3",
+        "desc": "SERP wide harvest #3 (TextView ordinal)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "3",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "11",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1300,
+        "y": 140
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_4",
+        "desc": "SERP wide harvest #4 (TextView ordinal)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "4",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "12",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 0,
+        "y": 280
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_5",
+        "desc": "SERP wide harvest #5 (TextView ordinal)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "5",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "13",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 260,
+        "y": 280
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_6",
+        "desc": "SERP wide harvest #6 (TextView ordinal)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "6",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "14",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 520,
+        "y": 280
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_7",
+        "desc": "SERP wide harvest #7 (TextView ordinal)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "7",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "15",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 780,
+        "y": 280
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_8",
+        "desc": "SERP wide harvest #8 (TextView ordinal)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "8",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "16",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1040,
+        "y": 280
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_9",
+        "desc": "SERP wide harvest #9 (TextView ordinal)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "9",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "17",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1300,
+        "y": 280
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_10",
+        "desc": "SERP wide harvest #10 (TextView ordinal)",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "10",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "18",
+      "type": "NET_REQUEST",
+      "position": {
+        "x": 0,
+        "y": 420
+      },
+      "data": {
+        "action": "NET_REQUEST",
+        "desc": "EARLY POST: raw SERP harvest (survives any later failure)",
+        "header_bean_list": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "request_body": "{\"grid_label\":\"${grid_label}\",\"keyword\":\"${search_term}\",\"gbp_name\":\"${gbp_name}\",\"surface\":\"chrome_serp_pack\",\"raw_serp\":[\"${w_1}\",\"${w_2}\",\"${w_3}\",\"${w_4}\",\"${w_5}\",\"${w_6}\",\"${w_7}\",\"${w_8}\",\"${w_9}\",\"${w_10}\"]}",
+        "request_type": "post",
+        "response_bean_list": [
+          {
+            "response_value": "",
+            "varname": ""
+          },
+          {
+            "response_value": "",
+            "varname": ""
+          },
+          {
+            "response_value": "",
+            "varname": ""
+          }
+        ],
+        "request_url": "${grid_webhook}",
+        "extraction_rule": "",
+        "save_result": "",
+        "timeout": "30000",
+        "exception_type": "2",
+        "exception_notify": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 94
+      }
+    },
+    {
+      "id": "19",
+      "type": "SLIDE_PAGE",
+      "position": {
+        "x": 260,
+        "y": 420
+      },
+      "data": {
+        "action": "SLIDE_PAGE",
+        "element_type": "slide_page",
+        "direction": "up",
+        "end_distance": "450",
+        "end_duration": "800",
+        "start_distance": "380",
+        "start_duration": "550",
+        "random_start_range": "25",
+        "desc": "Scroll SERP down past Local Service Ads to 3-Pack",
+        "exception_type": "2",
+        "exception_notify": "2",
+        "wait_before": "1000",
+        "wait_after": "2500",
+        "position_x": "540",
+        "position_y": "1560"
+      },
+      "measured": {
+        "width": 196,
+        "height": 94
+      }
+    },
+    {
+      "id": "20",
+      "type": "SLIDE_PAGE",
+      "position": {
+        "x": 520,
+        "y": 420
+      },
+      "data": {
+        "action": "SLIDE_PAGE",
+        "element_type": "slide_page",
+        "direction": "up",
+        "end_distance": "450",
+        "end_duration": "800",
+        "start_distance": "380",
+        "start_duration": "550",
+        "random_start_range": "25",
+        "desc": "Scroll SERP down past Local Service Ads to 3-Pack",
+        "exception_type": "2",
+        "exception_notify": "2",
+        "wait_before": "1000",
+        "wait_after": "2500",
+        "position_x": "540",
+        "position_y": "1560"
+      },
+      "measured": {
+        "width": 196,
+        "height": 94
+      }
+    },
+    {
+      "id": "21",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 780,
+        "y": 420
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_11",
+        "desc": "SERP deep harvest #11",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "11",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "22",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1040,
+        "y": 420
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_12",
+        "desc": "SERP deep harvest #12",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "12",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "23",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1300,
+        "y": 420
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_13",
+        "desc": "SERP deep harvest #13",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "13",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "24",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 0,
+        "y": 560
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_14",
+        "desc": "SERP deep harvest #14",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "14",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "25",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 260,
+        "y": 560
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_15",
+        "desc": "SERP deep harvest #15",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "15",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "26",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 520,
+        "y": 560
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "w_16",
+        "desc": "SERP deep harvest #16",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "16",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "27",
+      "type": "FOR_TIMES",
+      "position": {
+        "x": 780,
+        "y": 560
+      },
+      "data": {
+        "action": "FOR_TIMES",
+        "desc": "Hunt 'More businesses' (6 unrolled blocks)",
+        "children": {
+          "nodes": [
+            {
+              "id": "28",
+              "type": "WAIT_FOR_SELECTOR",
+              "position": {
+                "x": 1040,
+                "y": 560
+              },
+              "data": {
+                "action": "WAIT_FOR_SELECTOR",
+                "save_result": "mb_1",
+                "desc": "Probe 'More businesses' #1",
+                "element_type": "element_selector",
+                "use_offset": false,
+                "exception_type": "2",
+                "exception_notify": "2",
+                "selector_bean_list": [
+                  {
+                    "text": "More businesses"
+                  },
+                  {
+                    "text": "More places"
+                  },
+                  {
+                    "text": "Show more"
+                  }
+                ],
+                "selector_condition": "contain",
+                "type": "fixed_value",
+                "waiting_time": "2500",
+                "fixed_value": "1",
+                "operator": "",
+                "number": ""
+              },
+              "measured": {
+                "width": 196,
+                "height": 94
+              }
+            },
+            {
+              "id": "29",
+              "type": "IF_CONDITION",
+              "position": {
+                "x": 1300,
+                "y": 560
+              },
+              "data": {
+                "action": "IF_CONDITION",
+                "condition_bean": {
+                  "exist": [
+                    {
+                      "value": "${mb_1}"
+                    }
+                  ]
+                },
+                "desc": "Visible? click+break #1",
+                "exception_type": "2",
+                "exception_notify": "2",
+                "children": {
+                  "nodes": [
+                    {
+                      "id": "30",
+                      "type": "CLICK_ELEMENT",
+                      "position": {
+                        "x": 0,
+                        "y": 700
+                      },
+                      "data": {
+                        "action": "CLICK_ELEMENT",
+                        "save_result": "",
+                        "desc": "Click 'More businesses' -> Local Finder",
+                        "element_type": "element_selector",
+                        "use_offset": false,
+                        "exception_type": "2",
+                        "exception_notify": "2",
+                        "selector_bean_list": [
+                          {
+                            "text": "More businesses"
+                          }
+                        ],
+                        "selector_condition": "contain",
+                        "type": "fixed_value",
+                        "wait_before": "400",
+                        "wait_after": "7500",
+                        "fixed_value": "1",
+                        "operator": "",
+                        "number": ""
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 94
+                      }
+                    },
+                    {
+                      "id": "31",
+                      "type": "BREAK_LOOP",
+                      "position": {
+                        "x": 260,
+                        "y": 700
+                      },
+                      "data": {
+                        "action": "BREAK_LOOP",
+                        "desc": "No ads in tree — start organic harvest",
+                        "exception_type": "2",
+                        "exception_notify": "2"
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 70
+                      }
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "type": "closableEdge",
+                      "markerEnd": {
+                        "type": "arrowclosed"
+                      },
+                      "source": "30",
+                      "target": "31",
+                      "sourceHandle": "30-output",
+                      "targetHandle": "31-input",
+                      "id": "xy-edge__3030-output-3131-input",
+                      "selected": false
+                    }
+                  ]
+                }
+              },
+              "measured": {
+                "width": 196,
+                "height": 114
+              }
+            },
+            {
+              "id": "32",
+              "type": "SLIDE_PAGE",
+              "position": {
+                "x": 520,
+                "y": 700
+              },
+              "data": {
+                "action": "SLIDE_PAGE",
+                "element_type": "element_selector",
+                "direction": "up",
+                "end_distance": "450",
+                "end_duration": "800",
+                "start_distance": "380",
+                "start_duration": "550",
+                "random_start_range": "25",
+                "desc": "Not yet -> scroll #1",
+                "exception_type": "2",
+                "exception_notify": "2",
+                "wait_before": "600",
+                "wait_after": "1300"
+              },
+              "measured": {
+                "width": 196,
+                "height": 94
+              }
+            },
+            {
+              "id": "33",
+              "type": "WAIT_FOR_SELECTOR",
+              "position": {
+                "x": 780,
+                "y": 700
+              },
+              "data": {
+                "action": "WAIT_FOR_SELECTOR",
+                "save_result": "mb_2",
+                "desc": "Probe 'More businesses' #2",
+                "element_type": "element_selector",
+                "use_offset": false,
+                "exception_type": "2",
+                "exception_notify": "2",
+                "selector_bean_list": [
+                  {
+                    "text": "More businesses"
+                  },
+                  {
+                    "text": "More places"
+                  },
+                  {
+                    "text": "Show more"
+                  }
+                ],
+                "selector_condition": "contain",
+                "type": "fixed_value",
+                "waiting_time": "2500",
+                "fixed_value": "1",
+                "operator": "",
+                "number": ""
+              },
+              "measured": {
+                "width": 196,
+                "height": 94
+              }
+            },
+            {
+              "id": "34",
+              "type": "IF_CONDITION",
+              "position": {
+                "x": 1040,
+                "y": 700
+              },
+              "data": {
+                "action": "IF_CONDITION",
+                "condition_bean": {
+                  "exist": [
+                    {
+                      "value": "${mb_2}"
+                    }
+                  ]
+                },
+                "desc": "Visible? click+break #2",
+                "exception_type": "2",
+                "exception_notify": "2",
+                "children": {
+                  "nodes": [
+                    {
+                      "id": "35",
+                      "type": "CLICK_ELEMENT",
+                      "position": {
+                        "x": 1300,
+                        "y": 700
+                      },
+                      "data": {
+                        "action": "CLICK_ELEMENT",
+                        "save_result": "",
+                        "desc": "Click 'More businesses' -> Local Finder",
+                        "element_type": "element_selector",
+                        "use_offset": false,
+                        "exception_type": "2",
+                        "exception_notify": "2",
+                        "selector_bean_list": [
+                          {
+                            "text": "More businesses"
+                          }
+                        ],
+                        "selector_condition": "contain",
+                        "type": "fixed_value",
+                        "wait_before": "400",
+                        "wait_after": "7500",
+                        "fixed_value": "1",
+                        "operator": "",
+                        "number": ""
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 94
+                      }
+                    },
+                    {
+                      "id": "36",
+                      "type": "BREAK_LOOP",
+                      "position": {
+                        "x": 0,
+                        "y": 840
+                      },
+                      "data": {
+                        "action": "BREAK_LOOP",
+                        "desc": "No ads in tree — start organic harvest",
+                        "exception_type": "2",
+                        "exception_notify": "2"
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 70
+                      }
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "type": "closableEdge",
+                      "markerEnd": {
+                        "type": "arrowclosed"
+                      },
+                      "source": "35",
+                      "target": "36",
+                      "sourceHandle": "35-output",
+                      "targetHandle": "36-input",
+                      "id": "xy-edge__3535-output-3636-input",
+                      "selected": false
+                    }
+                  ]
+                }
+              },
+              "measured": {
+                "width": 196,
+                "height": 114
+              }
+            },
+            {
+              "id": "37",
+              "type": "SLIDE_PAGE",
+              "position": {
+                "x": 260,
+                "y": 840
+              },
+              "data": {
+                "action": "SLIDE_PAGE",
+                "element_type": "element_selector",
+                "direction": "up",
+                "end_distance": "450",
+                "end_duration": "800",
+                "start_distance": "380",
+                "start_duration": "550",
+                "random_start_range": "25",
+                "desc": "Not yet -> scroll #2",
+                "exception_type": "2",
+                "exception_notify": "2",
+                "wait_before": "600",
+                "wait_after": "1300"
+              },
+              "measured": {
+                "width": 196,
+                "height": 94
+              }
+            },
+            {
+              "id": "38",
+              "type": "WAIT_FOR_SELECTOR",
+              "position": {
+                "x": 520,
+                "y": 840
+              },
+              "data": {
+                "action": "WAIT_FOR_SELECTOR",
+                "save_result": "mb_3",
+                "desc": "Probe 'More businesses' #3",
+                "element_type": "element_selector",
+                "use_offset": false,
+                "exception_type": "2",
+                "exception_notify": "2",
+                "selector_bean_list": [
+                  {
+                    "text": "More businesses"
+                  },
+                  {
+                    "text": "More places"
+                  },
+                  {
+                    "text": "Show more"
+                  }
+                ],
+                "selector_condition": "contain",
+                "type": "fixed_value",
+                "waiting_time": "2500",
+                "fixed_value": "1",
+                "operator": "",
+                "number": ""
+              },
+              "measured": {
+                "width": 196,
+                "height": 94
+              }
+            },
+            {
+              "id": "39",
+              "type": "IF_CONDITION",
+              "position": {
+                "x": 780,
+                "y": 840
+              },
+              "data": {
+                "action": "IF_CONDITION",
+                "condition_bean": {
+                  "exist": [
+                    {
+                      "value": "${mb_3}"
+                    }
+                  ]
+                },
+                "desc": "Visible? click+break #3",
+                "exception_type": "2",
+                "exception_notify": "2",
+                "children": {
+                  "nodes": [
+                    {
+                      "id": "40",
+                      "type": "CLICK_ELEMENT",
+                      "position": {
+                        "x": 1040,
+                        "y": 840
+                      },
+                      "data": {
+                        "action": "CLICK_ELEMENT",
+                        "save_result": "",
+                        "desc": "Click 'More businesses' -> Local Finder",
+                        "element_type": "element_selector",
+                        "use_offset": false,
+                        "exception_type": "2",
+                        "exception_notify": "2",
+                        "selector_bean_list": [
+                          {
+                            "text": "More businesses"
+                          }
+                        ],
+                        "selector_condition": "contain",
+                        "type": "fixed_value",
+                        "wait_before": "400",
+                        "wait_after": "7500",
+                        "fixed_value": "1",
+                        "operator": "",
+                        "number": ""
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 94
+                      }
+                    },
+                    {
+                      "id": "41",
+                      "type": "BREAK_LOOP",
+                      "position": {
+                        "x": 1300,
+                        "y": 840
+                      },
+                      "data": {
+                        "action": "BREAK_LOOP",
+                        "desc": "No ads in tree — start organic harvest",
+                        "exception_type": "2",
+                        "exception_notify": "2"
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 70
+                      }
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "type": "closableEdge",
+                      "markerEnd": {
+                        "type": "arrowclosed"
+                      },
+                      "source": "40",
+                      "target": "41",
+                      "sourceHandle": "40-output",
+                      "targetHandle": "41-input",
+                      "id": "xy-edge__4040-output-4141-input",
+                      "selected": false
+                    }
+                  ]
+                }
+              },
+              "measured": {
+                "width": 196,
+                "height": 114
+              }
+            },
+            {
+              "id": "42",
+              "type": "SLIDE_PAGE",
+              "position": {
+                "x": 0,
+                "y": 980
+              },
+              "data": {
+                "action": "SLIDE_PAGE",
+                "element_type": "element_selector",
+                "direction": "up",
+                "end_distance": "450",
+                "end_duration": "800",
+                "start_distance": "380",
+                "start_duration": "550",
+                "random_start_range": "25",
+                "desc": "Not yet -> scroll #3",
+                "exception_type": "2",
+                "exception_notify": "2",
+                "wait_before": "600",
+                "wait_after": "1300"
+              },
+              "measured": {
+                "width": 196,
+                "height": 94
+              }
+            },
+            {
+              "id": "43",
+              "type": "WAIT_FOR_SELECTOR",
+              "position": {
+                "x": 260,
+                "y": 980
+              },
+              "data": {
+                "action": "WAIT_FOR_SELECTOR",
+                "save_result": "mb_4",
+                "desc": "Probe 'More businesses' #4",
+                "element_type": "element_selector",
+                "use_offset": false,
+                "exception_type": "2",
+                "exception_notify": "2",
+                "selector_bean_list": [
+                  {
+                    "text": "More businesses"
+                  },
+                  {
+                    "text": "More places"
+                  },
+                  {
+                    "text": "Show more"
+                  }
+                ],
+                "selector_condition": "contain",
+                "type": "fixed_value",
+                "waiting_time": "2500",
+                "fixed_value": "1",
+                "operator": "",
+                "number": ""
+              },
+              "measured": {
+                "width": 196,
+                "height": 94
+              }
+            },
+            {
+              "id": "44",
+              "type": "IF_CONDITION",
+              "position": {
+                "x": 520,
+                "y": 980
+              },
+              "data": {
+                "action": "IF_CONDITION",
+                "condition_bean": {
+                  "exist": [
+                    {
+                      "value": "${mb_4}"
+                    }
+                  ]
+                },
+                "desc": "Visible? click+break #4",
+                "exception_type": "2",
+                "exception_notify": "2",
+                "children": {
+                  "nodes": [
+                    {
+                      "id": "45",
+                      "type": "CLICK_ELEMENT",
+                      "position": {
+                        "x": 780,
+                        "y": 980
+                      },
+                      "data": {
+                        "action": "CLICK_ELEMENT",
+                        "save_result": "",
+                        "desc": "Click 'More businesses' -> Local Finder",
+                        "element_type": "element_selector",
+                        "use_offset": false,
+                        "exception_type": "2",
+                        "exception_notify": "2",
+                        "selector_bean_list": [
+                          {
+                            "text": "More businesses"
+                          }
+                        ],
+                        "selector_condition": "contain",
+                        "type": "fixed_value",
+                        "wait_before": "400",
+                        "wait_after": "7500",
+                        "fixed_value": "1",
+                        "operator": "",
+                        "number": ""
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 94
+                      }
+                    },
+                    {
+                      "id": "46",
+                      "type": "BREAK_LOOP",
+                      "position": {
+                        "x": 1040,
+                        "y": 980
+                      },
+                      "data": {
+                        "action": "BREAK_LOOP",
+                        "desc": "No ads in tree — start organic harvest",
+                        "exception_type": "2",
+                        "exception_notify": "2"
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 70
+                      }
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "type": "closableEdge",
+                      "markerEnd": {
+                        "type": "arrowclosed"
+                      },
+                      "source": "45",
+                      "target": "46",
+                      "sourceHandle": "45-output",
+                      "targetHandle": "46-input",
+                      "id": "xy-edge__4545-output-4646-input",
+                      "selected": false
+                    }
+                  ]
+                }
+              },
+              "measured": {
+                "width": 196,
+                "height": 114
+              }
+            },
+            {
+              "id": "47",
+              "type": "SLIDE_PAGE",
+              "position": {
+                "x": 1300,
+                "y": 980
+              },
+              "data": {
+                "action": "SLIDE_PAGE",
+                "element_type": "element_selector",
+                "direction": "up",
+                "end_distance": "450",
+                "end_duration": "800",
+                "start_distance": "380",
+                "start_duration": "550",
+                "random_start_range": "25",
+                "desc": "Not yet -> scroll #4",
+                "exception_type": "2",
+                "exception_notify": "2",
+                "wait_before": "600",
+                "wait_after": "1300"
+              },
+              "measured": {
+                "width": 196,
+                "height": 94
+              }
+            },
+            {
+              "id": "48",
+              "type": "WAIT_FOR_SELECTOR",
+              "position": {
+                "x": 0,
+                "y": 1120
+              },
+              "data": {
+                "action": "WAIT_FOR_SELECTOR",
+                "save_result": "mb_5",
+                "desc": "Probe 'More businesses' #5",
+                "element_type": "element_selector",
+                "use_offset": false,
+                "exception_type": "2",
+                "exception_notify": "2",
+                "selector_bean_list": [
+                  {
+                    "text": "More businesses"
+                  },
+                  {
+                    "text": "More places"
+                  },
+                  {
+                    "text": "Show more"
+                  }
+                ],
+                "selector_condition": "contain",
+                "type": "fixed_value",
+                "waiting_time": "2500",
+                "fixed_value": "1",
+                "operator": "",
+                "number": ""
+              },
+              "measured": {
+                "width": 196,
+                "height": 94
+              }
+            },
+            {
+              "id": "49",
+              "type": "IF_CONDITION",
+              "position": {
+                "x": 260,
+                "y": 1120
+              },
+              "data": {
+                "action": "IF_CONDITION",
+                "condition_bean": {
+                  "exist": [
+                    {
+                      "value": "${mb_5}"
+                    }
+                  ]
+                },
+                "desc": "Visible? click+break #5",
+                "exception_type": "2",
+                "exception_notify": "2",
+                "children": {
+                  "nodes": [
+                    {
+                      "id": "50",
+                      "type": "CLICK_ELEMENT",
+                      "position": {
+                        "x": 520,
+                        "y": 1120
+                      },
+                      "data": {
+                        "action": "CLICK_ELEMENT",
+                        "save_result": "",
+                        "desc": "Click 'More businesses' -> Local Finder",
+                        "element_type": "element_selector",
+                        "use_offset": false,
+                        "exception_type": "2",
+                        "exception_notify": "2",
+                        "selector_bean_list": [
+                          {
+                            "text": "More businesses"
+                          }
+                        ],
+                        "selector_condition": "contain",
+                        "type": "fixed_value",
+                        "wait_before": "400",
+                        "wait_after": "7500",
+                        "fixed_value": "1",
+                        "operator": "",
+                        "number": ""
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 94
+                      }
+                    },
+                    {
+                      "id": "51",
+                      "type": "BREAK_LOOP",
+                      "position": {
+                        "x": 780,
+                        "y": 1120
+                      },
+                      "data": {
+                        "action": "BREAK_LOOP",
+                        "desc": "No ads in tree — start organic harvest",
+                        "exception_type": "2",
+                        "exception_notify": "2"
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 70
+                      }
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "type": "closableEdge",
+                      "markerEnd": {
+                        "type": "arrowclosed"
+                      },
+                      "source": "50",
+                      "target": "51",
+                      "sourceHandle": "50-output",
+                      "targetHandle": "51-input",
+                      "id": "xy-edge__5050-output-5151-input",
+                      "selected": false
+                    }
+                  ]
+                }
+              },
+              "measured": {
+                "width": 196,
+                "height": 114
+              }
+            },
+            {
+              "id": "52",
+              "type": "SLIDE_PAGE",
+              "position": {
+                "x": 1040,
+                "y": 1120
+              },
+              "data": {
+                "action": "SLIDE_PAGE",
+                "element_type": "element_selector",
+                "direction": "up",
+                "end_distance": "450",
+                "end_duration": "800",
+                "start_distance": "380",
+                "start_duration": "550",
+                "random_start_range": "25",
+                "desc": "Not yet -> scroll #5",
+                "exception_type": "2",
+                "exception_notify": "2",
+                "wait_before": "600",
+                "wait_after": "1300"
+              },
+              "measured": {
+                "width": 196,
+                "height": 94
+              }
+            },
+            {
+              "id": "53",
+              "type": "WAIT_FOR_SELECTOR",
+              "position": {
+                "x": 1300,
+                "y": 1120
+              },
+              "data": {
+                "action": "WAIT_FOR_SELECTOR",
+                "save_result": "mb_6",
+                "desc": "Probe 'More businesses' #6",
+                "element_type": "element_selector",
+                "use_offset": false,
+                "exception_type": "2",
+                "exception_notify": "2",
+                "selector_bean_list": [
+                  {
+                    "text": "More businesses"
+                  },
+                  {
+                    "text": "More places"
+                  },
+                  {
+                    "text": "Show more"
+                  }
+                ],
+                "selector_condition": "contain",
+                "type": "fixed_value",
+                "waiting_time": "2500",
+                "fixed_value": "1",
+                "operator": "",
+                "number": ""
+              },
+              "measured": {
+                "width": 196,
+                "height": 94
+              }
+            },
+            {
+              "id": "54",
+              "type": "IF_CONDITION",
+              "position": {
+                "x": 0,
+                "y": 1260
+              },
+              "data": {
+                "action": "IF_CONDITION",
+                "condition_bean": {
+                  "exist": [
+                    {
+                      "value": "${mb_6}"
+                    }
+                  ]
+                },
+                "desc": "Visible? click+break #6",
+                "exception_type": "2",
+                "exception_notify": "2",
+                "children": {
+                  "nodes": [
+                    {
+                      "id": "55",
+                      "type": "CLICK_ELEMENT",
+                      "position": {
+                        "x": 260,
+                        "y": 1260
+                      },
+                      "data": {
+                        "action": "CLICK_ELEMENT",
+                        "save_result": "",
+                        "desc": "Click 'More businesses' -> Local Finder",
+                        "element_type": "element_selector",
+                        "use_offset": false,
+                        "exception_type": "2",
+                        "exception_notify": "2",
+                        "selector_bean_list": [
+                          {
+                            "text": "More businesses"
+                          }
+                        ],
+                        "selector_condition": "contain",
+                        "type": "fixed_value",
+                        "wait_before": "400",
+                        "wait_after": "7500",
+                        "fixed_value": "1",
+                        "operator": "",
+                        "number": ""
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 94
+                      }
+                    },
+                    {
+                      "id": "56",
+                      "type": "BREAK_LOOP",
+                      "position": {
+                        "x": 520,
+                        "y": 1260
+                      },
+                      "data": {
+                        "action": "BREAK_LOOP",
+                        "desc": "No ads in tree — start organic harvest",
+                        "exception_type": "2",
+                        "exception_notify": "2"
+                      },
+                      "measured": {
+                        "width": 196,
+                        "height": 70
+                      }
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "type": "closableEdge",
+                      "markerEnd": {
+                        "type": "arrowclosed"
+                      },
+                      "source": "55",
+                      "target": "56",
+                      "sourceHandle": "55-output",
+                      "targetHandle": "56-input",
+                      "id": "xy-edge__5555-output-5656-input",
+                      "selected": false
+                    }
+                  ]
+                }
+              },
+              "measured": {
+                "width": 196,
+                "height": 114
+              }
+            }
+          ],
+          "edges": [
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "28",
+              "target": "29",
+              "sourceHandle": "28-output",
+              "targetHandle": "29-input",
+              "id": "xy-edge__2828-output-2929-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "29",
+              "target": "32",
+              "sourceHandle": "29-output",
+              "targetHandle": "32-input",
+              "id": "xy-edge__2929-output-3232-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "32",
+              "target": "33",
+              "sourceHandle": "32-output",
+              "targetHandle": "33-input",
+              "id": "xy-edge__3232-output-3333-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "33",
+              "target": "34",
+              "sourceHandle": "33-output",
+              "targetHandle": "34-input",
+              "id": "xy-edge__3333-output-3434-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "34",
+              "target": "37",
+              "sourceHandle": "34-output",
+              "targetHandle": "37-input",
+              "id": "xy-edge__3434-output-3737-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "37",
+              "target": "38",
+              "sourceHandle": "37-output",
+              "targetHandle": "38-input",
+              "id": "xy-edge__3737-output-3838-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "38",
+              "target": "39",
+              "sourceHandle": "38-output",
+              "targetHandle": "39-input",
+              "id": "xy-edge__3838-output-3939-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "39",
+              "target": "42",
+              "sourceHandle": "39-output",
+              "targetHandle": "42-input",
+              "id": "xy-edge__3939-output-4242-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "42",
+              "target": "43",
+              "sourceHandle": "42-output",
+              "targetHandle": "43-input",
+              "id": "xy-edge__4242-output-4343-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "43",
+              "target": "44",
+              "sourceHandle": "43-output",
+              "targetHandle": "44-input",
+              "id": "xy-edge__4343-output-4444-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "44",
+              "target": "47",
+              "sourceHandle": "44-output",
+              "targetHandle": "47-input",
+              "id": "xy-edge__4444-output-4747-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "47",
+              "target": "48",
+              "sourceHandle": "47-output",
+              "targetHandle": "48-input",
+              "id": "xy-edge__4747-output-4848-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "48",
+              "target": "49",
+              "sourceHandle": "48-output",
+              "targetHandle": "49-input",
+              "id": "xy-edge__4848-output-4949-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "49",
+              "target": "52",
+              "sourceHandle": "49-output",
+              "targetHandle": "52-input",
+              "id": "xy-edge__4949-output-5252-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "52",
+              "target": "53",
+              "sourceHandle": "52-output",
+              "targetHandle": "53-input",
+              "id": "xy-edge__5252-output-5353-input",
+              "selected": false
+            },
+            {
+              "type": "closableEdge",
+              "markerEnd": {
+                "type": "arrowclosed"
+              },
+              "source": "53",
+              "target": "54",
+              "sourceHandle": "53-output",
+              "targetHandle": "54-input",
+              "id": "xy-edge__5353-output-5454-input",
+              "selected": false
+            }
+          ]
+        },
+        "type": "fixed_value",
+        "exception_type": "2",
+        "exception_notify": "2",
+        "fixed_value": "1"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "57",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 780,
+        "y": 1260
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_1",
+        "desc": "Finder harvest #1",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "1",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "58",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1040,
+        "y": 1260
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_2",
+        "desc": "Finder harvest #2",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "2",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "59",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1300,
+        "y": 1260
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_3",
+        "desc": "Finder harvest #3",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "3",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "60",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 0,
+        "y": 1400
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_4",
+        "desc": "Finder harvest #4",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "4",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "61",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 260,
+        "y": 1400
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_5",
+        "desc": "Finder harvest #5",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "5",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "62",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 520,
+        "y": 1400
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_6",
+        "desc": "Finder harvest #6",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "6",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "63",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 780,
+        "y": 1400
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_7",
+        "desc": "Finder harvest #7",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "7",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "64",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1040,
+        "y": 1400
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_8",
+        "desc": "Finder harvest #8",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "8",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "65",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1300,
+        "y": 1400
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_9",
+        "desc": "Finder harvest #9",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "9",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "66",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 0,
+        "y": 1540
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_10",
+        "desc": "Finder harvest #10",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "10",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "67",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 260,
+        "y": 1540
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_11",
+        "desc": "Finder harvest #11",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "11",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "68",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 520,
+        "y": 1540
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_12",
+        "desc": "Finder harvest #12",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "12",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "69",
+      "type": "SLIDE_PAGE",
+      "position": {
+        "x": 780,
+        "y": 1540
+      },
+      "data": {
+        "action": "SLIDE_PAGE",
+        "element_type": "slide_page",
+        "direction": "up",
+        "end_distance": "450",
+        "end_duration": "800",
+        "start_distance": "380",
+        "start_duration": "550",
+        "random_start_range": "25",
+        "desc": "Finder scroll 1",
+        "exception_type": "2",
+        "exception_notify": "2",
+        "wait_before": "600",
+        "wait_after": "1600",
+        "position_x": "540",
+        "position_y": "1560"
+      },
+      "measured": {
+        "width": 196,
+        "height": 94
+      }
+    },
+    {
+      "id": "70",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1040,
+        "y": 1540
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_13",
+        "desc": "Finder harvest #13",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "13",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "71",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1300,
+        "y": 1540
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_14",
+        "desc": "Finder harvest #14",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "14",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "72",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 0,
+        "y": 1680
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_15",
+        "desc": "Finder harvest #15",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "15",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "73",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 260,
+        "y": 1680
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_16",
+        "desc": "Finder harvest #16",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "16",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "74",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 520,
+        "y": 1680
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_17",
+        "desc": "Finder harvest #17",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "17",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "75",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 780,
+        "y": 1680
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_18",
+        "desc": "Finder harvest #18",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "18",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "76",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1040,
+        "y": 1680
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_19",
+        "desc": "Finder harvest #19",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "19",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "77",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1300,
+        "y": 1680
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_20",
+        "desc": "Finder harvest #20",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "20",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "78",
+      "type": "SLIDE_PAGE",
+      "position": {
+        "x": 0,
+        "y": 1820
+      },
+      "data": {
+        "action": "SLIDE_PAGE",
+        "element_type": "slide_page",
+        "direction": "up",
+        "end_distance": "450",
+        "end_duration": "800",
+        "start_distance": "380",
+        "start_duration": "550",
+        "random_start_range": "25",
+        "desc": "Finder scroll 2",
+        "exception_type": "2",
+        "exception_notify": "2",
+        "wait_before": "600",
+        "wait_after": "1600",
+        "position_x": "540",
+        "position_y": "1560"
+      },
+      "measured": {
+        "width": 196,
+        "height": 94
+      }
+    },
+    {
+      "id": "79",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 260,
+        "y": 1820
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_21",
+        "desc": "Finder harvest #21",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "21",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "80",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 520,
+        "y": 1820
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_22",
+        "desc": "Finder harvest #22",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "22",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "81",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 780,
+        "y": 1820
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_23",
+        "desc": "Finder harvest #23",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "23",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "82",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1040,
+        "y": 1820
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_24",
+        "desc": "Finder harvest #24",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "24",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "83",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 1300,
+        "y": 1820
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_25",
+        "desc": "Finder harvest #25",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "25",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "84",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 0,
+        "y": 1960
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_26",
+        "desc": "Finder harvest #26",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "26",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "85",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 260,
+        "y": 1960
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_27",
+        "desc": "Finder harvest #27",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "27",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "86",
+      "type": "GET_SINGLE_ELEMENT_TEXT",
+      "position": {
+        "x": 520,
+        "y": 1960
+      },
+      "data": {
+        "action": "GET_SINGLE_ELEMENT_TEXT",
+        "save_result": "f_28",
+        "desc": "Finder harvest #28",
+        "element_type": "element_selector",
+        "use_offset": false,
+        "exception_type": "1",
+        "exception_notify": "1",
+        "selector_bean_list": [
+          {
+            "class": "android.widget.TextView"
+          }
+        ],
+        "selector_condition": "equal",
+        "type": "fixed_value",
+        "wait_before": "500",
+        "wait_after": "300",
+        "fixed_value": "28",
+        "operator": "",
+        "number": "",
+        "match_type": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 114
+      }
+    },
+    {
+      "id": "88",
+      "type": "NET_REQUEST",
+      "position": {
+        "x": 1040,
+        "y": 1960
+      },
+      "data": {
+        "action": "NET_REQUEST",
+        "desc": "FINAL POST: full SERP + Finder harvest",
+        "header_bean_list": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "request_body": "{\"grid_label\":\"${grid_label}\",\"keyword\":\"${search_term}\",\"gbp_name\":\"${gbp_name}\",\"surface\":\"chrome_local_finder\",\"raw_serp\":[\"${w_1}\",\"${w_2}\",\"${w_3}\",\"${w_4}\",\"${w_5}\",\"${w_6}\",\"${w_7}\",\"${w_8}\",\"${w_9}\",\"${w_10}\",\"${w_11}\",\"${w_12}\",\"${w_13}\",\"${w_14}\",\"${w_15}\",\"${w_16}\"],\"raw_finder\":[\"${f_1}\",\"${f_2}\",\"${f_3}\",\"${f_4}\",\"${f_5}\",\"${f_6}\",\"${f_7}\",\"${f_8}\",\"${f_9}\",\"${f_10}\",\"${f_11}\",\"${f_12}\",\"${f_13}\",\"${f_14}\",\"${f_15}\",\"${f_16}\",\"${f_17}\",\"${f_18}\",\"${f_19}\",\"${f_20}\",\"${f_21}\",\"${f_22}\",\"${f_23}\",\"${f_24}\",\"${f_25}\",\"${f_26}\",\"${f_27}\",\"${f_28}\"]}",
+        "request_type": "post",
+        "response_bean_list": [
+          {
+            "response_value": "",
+            "varname": ""
+          },
+          {
+            "response_value": "",
+            "varname": ""
+          },
+          {
+            "response_value": "",
+            "varname": ""
+          }
+        ],
+        "request_url": "${grid_webhook}",
+        "extraction_rule": "",
+        "save_result": "",
+        "timeout": "30000",
+        "exception_type": "2",
+        "exception_notify": "2"
+      },
+      "measured": {
+        "width": 196,
+        "height": 94
+      }
+    },
+    {
+      "id": "18a",
+      "type": "PAGE_SCREENSHOT",
+      "position": {
+        "x": 520,
+        "y": 280
+      },
+      "data": {
+        "action": "PAGE_SCREENSHOT",
+        "desc": "Screenshot 1: 3-Pack Map Area",
+        "exception_type": "1",
+        "exception_notify": "1",
+        "save_result": "ss_3pack"
+      },
+      "measured": {
+        "width": 196,
+        "height": 70
+      }
+    },
+    {
+      "id": "87",
+      "type": "PAGE_SCREENSHOT",
+      "position": {
+        "x": 780,
+        "y": 1960
+      },
+      "data": {
+        "action": "PAGE_SCREENSHOT",
+        "desc": "Screenshot 2: Local Finder Top 20 Evidence",
+        "exception_type": "1",
+        "exception_notify": "1",
+        "save_result": "ss_finder"
+      },
+      "measured": {
+        "width": 196,
+        "height": 70
+      }
+    }
+  ],
+  "edges": [
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "1",
+      "target": "2",
+      "sourceHandle": "1-output",
+      "targetHandle": "2-input",
+      "id": "xy-edge__11-output-22-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "2",
+      "target": "4",
+      "sourceHandle": "2-output",
+      "targetHandle": "4-input",
+      "id": "xy-edge__22-output-44-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "4",
+      "target": "6",
+      "sourceHandle": "4-output",
+      "targetHandle": "6-input",
+      "id": "xy-edge__44-output-66-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "6",
+      "target": "7",
+      "sourceHandle": "6-output",
+      "targetHandle": "7-input",
+      "id": "xy-edge__66-output-77-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "7",
+      "target": "19",
+      "sourceHandle": "7-output",
+      "targetHandle": "19-input",
+      "id": "xy-edge__77-output-1919-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "8",
+      "target": "9",
+      "sourceHandle": "8-output",
+      "targetHandle": "9-input",
+      "id": "xy-edge__88-output-99-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "9",
+      "target": "10",
+      "sourceHandle": "9-output",
+      "targetHandle": "10-input",
+      "id": "xy-edge__99-output-1010-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "10",
+      "target": "11",
+      "sourceHandle": "10-output",
+      "targetHandle": "11-input",
+      "id": "xy-edge__1010-output-1111-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "11",
+      "target": "12",
+      "sourceHandle": "11-output",
+      "targetHandle": "12-input",
+      "id": "xy-edge__1111-output-1212-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "12",
+      "target": "13",
+      "sourceHandle": "12-output",
+      "targetHandle": "13-input",
+      "id": "xy-edge__1212-output-1313-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "13",
+      "target": "14",
+      "sourceHandle": "13-output",
+      "targetHandle": "14-input",
+      "id": "xy-edge__1313-output-1414-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "14",
+      "target": "15",
+      "sourceHandle": "14-output",
+      "targetHandle": "15-input",
+      "id": "xy-edge__1414-output-1515-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "15",
+      "target": "16",
+      "sourceHandle": "15-output",
+      "targetHandle": "16-input",
+      "id": "xy-edge__1515-output-1616-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "16",
+      "target": "17",
+      "sourceHandle": "16-output",
+      "targetHandle": "17-input",
+      "id": "xy-edge__1616-output-1717-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "17",
+      "target": "18",
+      "sourceHandle": "17-output",
+      "targetHandle": "18-input",
+      "id": "xy-edge__1717-output-1818-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "18",
+      "target": "21",
+      "sourceHandle": "18-output",
+      "targetHandle": "21-input",
+      "id": "xy-edge__1818-output-2121-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "19",
+      "target": "20",
+      "sourceHandle": "19-output",
+      "targetHandle": "20-input",
+      "id": "xy-edge__1919-output-2020-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "20",
+      "target": "18a",
+      "sourceHandle": "20-output",
+      "targetHandle": "18a-input",
+      "id": "xy-edge__2020-output-18a18a-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "21",
+      "target": "22",
+      "sourceHandle": "21-output",
+      "targetHandle": "22-input",
+      "id": "xy-edge__2121-output-2222-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "22",
+      "target": "23",
+      "sourceHandle": "22-output",
+      "targetHandle": "23-input",
+      "id": "xy-edge__2222-output-2323-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "23",
+      "target": "24",
+      "sourceHandle": "23-output",
+      "targetHandle": "24-input",
+      "id": "xy-edge__2323-output-2424-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "24",
+      "target": "25",
+      "sourceHandle": "24-output",
+      "targetHandle": "25-input",
+      "id": "xy-edge__2424-output-2525-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "25",
+      "target": "26",
+      "sourceHandle": "25-output",
+      "targetHandle": "26-input",
+      "id": "xy-edge__2525-output-2626-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "26",
+      "target": "27",
+      "sourceHandle": "26-output",
+      "targetHandle": "27-input",
+      "id": "xy-edge__2626-output-2727-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "27",
+      "target": "57",
+      "sourceHandle": "27-output",
+      "targetHandle": "57-input",
+      "id": "xy-edge__2727-output-5757-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "57",
+      "target": "58",
+      "sourceHandle": "57-output",
+      "targetHandle": "58-input",
+      "id": "xy-edge__5757-output-5858-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "58",
+      "target": "59",
+      "sourceHandle": "58-output",
+      "targetHandle": "59-input",
+      "id": "xy-edge__5858-output-5959-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "59",
+      "target": "60",
+      "sourceHandle": "59-output",
+      "targetHandle": "60-input",
+      "id": "xy-edge__5959-output-6060-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "60",
+      "target": "61",
+      "sourceHandle": "60-output",
+      "targetHandle": "61-input",
+      "id": "xy-edge__6060-output-6161-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "61",
+      "target": "62",
+      "sourceHandle": "61-output",
+      "targetHandle": "62-input",
+      "id": "xy-edge__6161-output-6262-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "62",
+      "target": "63",
+      "sourceHandle": "62-output",
+      "targetHandle": "63-input",
+      "id": "xy-edge__6262-output-6363-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "63",
+      "target": "64",
+      "sourceHandle": "63-output",
+      "targetHandle": "64-input",
+      "id": "xy-edge__6363-output-6464-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "64",
+      "target": "65",
+      "sourceHandle": "64-output",
+      "targetHandle": "65-input",
+      "id": "xy-edge__6464-output-6565-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "65",
+      "target": "66",
+      "sourceHandle": "65-output",
+      "targetHandle": "66-input",
+      "id": "xy-edge__6565-output-6666-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "66",
+      "target": "67",
+      "sourceHandle": "66-output",
+      "targetHandle": "67-input",
+      "id": "xy-edge__6666-output-6767-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "67",
+      "target": "68",
+      "sourceHandle": "67-output",
+      "targetHandle": "68-input",
+      "id": "xy-edge__6767-output-6868-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "68",
+      "target": "69",
+      "sourceHandle": "68-output",
+      "targetHandle": "69-input",
+      "id": "xy-edge__6868-output-6969-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "69",
+      "target": "70",
+      "sourceHandle": "69-output",
+      "targetHandle": "70-input",
+      "id": "xy-edge__6969-output-7070-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "70",
+      "target": "71",
+      "sourceHandle": "70-output",
+      "targetHandle": "71-input",
+      "id": "xy-edge__7070-output-7171-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "71",
+      "target": "72",
+      "sourceHandle": "71-output",
+      "targetHandle": "72-input",
+      "id": "xy-edge__7171-output-7272-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "72",
+      "target": "73",
+      "sourceHandle": "72-output",
+      "targetHandle": "73-input",
+      "id": "xy-edge__7272-output-7373-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "73",
+      "target": "74",
+      "sourceHandle": "73-output",
+      "targetHandle": "74-input",
+      "id": "xy-edge__7373-output-7474-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "74",
+      "target": "75",
+      "sourceHandle": "74-output",
+      "targetHandle": "75-input",
+      "id": "xy-edge__7474-output-7575-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "75",
+      "target": "76",
+      "sourceHandle": "75-output",
+      "targetHandle": "76-input",
+      "id": "xy-edge__7575-output-7676-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "76",
+      "target": "77",
+      "sourceHandle": "76-output",
+      "targetHandle": "77-input",
+      "id": "xy-edge__7676-output-7777-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "77",
+      "target": "78",
+      "sourceHandle": "77-output",
+      "targetHandle": "78-input",
+      "id": "xy-edge__7777-output-7878-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "78",
+      "target": "79",
+      "sourceHandle": "78-output",
+      "targetHandle": "79-input",
+      "id": "xy-edge__7878-output-7979-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "79",
+      "target": "80",
+      "sourceHandle": "79-output",
+      "targetHandle": "80-input",
+      "id": "xy-edge__7979-output-8080-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "80",
+      "target": "81",
+      "sourceHandle": "80-output",
+      "targetHandle": "81-input",
+      "id": "xy-edge__8080-output-8181-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "81",
+      "target": "82",
+      "sourceHandle": "81-output",
+      "targetHandle": "82-input",
+      "id": "xy-edge__8181-output-8282-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "82",
+      "target": "83",
+      "sourceHandle": "82-output",
+      "targetHandle": "83-input",
+      "id": "xy-edge__8282-output-8383-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "83",
+      "target": "84",
+      "sourceHandle": "83-output",
+      "targetHandle": "84-input",
+      "id": "xy-edge__8383-output-8484-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "84",
+      "target": "85",
+      "sourceHandle": "84-output",
+      "targetHandle": "85-input",
+      "id": "xy-edge__8484-output-8585-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "85",
+      "target": "86",
+      "sourceHandle": "85-output",
+      "targetHandle": "86-input",
+      "id": "xy-edge__8585-output-8686-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "86",
+      "target": "87",
+      "sourceHandle": "86-output",
+      "targetHandle": "87-input",
+      "id": "xy-edge__8686-output-8787-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "87",
+      "target": "88",
+      "sourceHandle": "87-output",
+      "targetHandle": "88-input",
+      "id": "xy-edge__8787-output-8888-input",
+      "selected": false
+    },
+    {
+      "type": "closableEdge",
+      "markerEnd": {
+        "type": "arrowclosed"
+      },
+      "source": "18a",
+      "target": "8",
+      "sourceHandle": "18a-output",
+      "targetHandle": "8-input",
+      "id": "xy-edge__18a18a-output-88-input",
+      "selected": false
+    }
+  ]
+}
