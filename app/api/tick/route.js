@@ -9,13 +9,17 @@ export async function POST(req) {
   const secret = url.searchParams.get('secret');
   const pass = isAdmin(req) || (secret && secret === process.env.ADMIN_KEY) || !process.env.ADMIN_KEY;
 
+  // The plain watchdog tick stays open (Vercel cron and the scan page poll it
+  // anonymously; it only re-drives existing state), but resetting failed points
+  // is a mutation reserved for the admin.
+  const resetFailed = url.searchParams.get('reset_failed') === '1';
+  if (resetFailed && !pass) return Response.json({ error: 'unauthorized' }, { status: 401 });
+
   const sb = db();
   const { data: scans } = await sb.from('scans').select('*').eq('status', 'running');
   const origin = url.origin;
   const bg = [];
   let kicked = 0;
-
-  const resetFailed = url.searchParams.get('reset_failed') === '1';
 
   if (scans?.length) {
     await cancelStaleDuoTasks(scans.map(s => s.id));

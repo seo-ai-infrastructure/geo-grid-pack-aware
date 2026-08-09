@@ -52,11 +52,18 @@ export async function POST(req) {
   }
 
   const isDone = Boolean(titles && titles.length);
-  const nextState = isDone ? 'done' : 'pending';
+
+  // Empty harvest = retry, but count it: without an attempts bump a point that
+  // always reports empty would ping-pong pending -> task_issued forever.
+  const { data: pt } = await sb.from('scan_points').select('id, attempts')
+    .eq('scan_id', scan.id).eq('label', label).single();
+  const attempts = (pt?.attempts || 0) + (isDone ? 0 : 1);
+  const nextState = isDone ? 'done' : (attempts >= 5 ? 'failed' : 'pending');
 
   const { data: updated } = await sb.from('scan_points').update({
     state: nextState, position: isDone ? position : null, titles: isDone ? titles : null, surface: body.surface || 'maps_app_organic',
-    done_at: isDone ? new Date().toISOString() : null, phone_id: isDone ? null : null, ...packFields
+    done_at: isDone ? new Date().toISOString() : null, phone_id: null, attempts,
+    error: nextState === 'failed' ? 'empty harvest after 5 attempts' : null, ...packFields
   }).eq('scan_id', scan.id).eq('label', label).select();
 
   // event-driven advance: this result frees the phone -> kick the next point now

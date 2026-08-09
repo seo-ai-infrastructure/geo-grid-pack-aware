@@ -13,6 +13,10 @@ export async function POST(req) {
   const spacing_miles = parseFloat(b.spacing_miles || 1);
   if (!keyword || !gbp_name || !isFinite(+center_lat) || !isFinite(+center_lng))
     return Response.json({ error: 'keyword, gbp_name, center_lat, center_lng required' }, { status: 400 });
+  if (!Number.isFinite(grid_size) || grid_size < 1 || grid_size > 15)
+    return Response.json({ error: 'grid_size must be 1-15' }, { status: 400 });
+  if (!Number.isFinite(spacing_miles) || spacing_miles <= 0 || spacing_miles > 25)
+    return Response.json({ error: 'spacing_miles must be 0-25' }, { status: 400 });
 
   const sb = db();
   const ledger_key = b.ledger_key || 'owner';

@@ -62,10 +62,20 @@ insert into storage.buckets (id, name, public)
 values ('geogrid-videos', 'geogrid-videos', true)
 on conflict (id) do update set public = true;
 
-create policy if not exists "Public read geogrid videos"
-on storage.objects for select
-using (bucket_id = 'geogrid-videos');
-
-create policy if not exists "Service role upload geogrid videos"
-on storage.objects for insert
-with check (bucket_id = 'geogrid-videos');
+-- Postgres has no CREATE POLICY IF NOT EXISTS; guard with a DO block so the
+-- whole file stays idempotent / re-runnable.
+do $$
+begin
+  if not exists (select 1 from pg_policies where schemaname = 'storage' and tablename = 'objects'
+                 and policyname = 'Public read geogrid videos') then
+    create policy "Public read geogrid videos"
+    on storage.objects for select
+    using (bucket_id = 'geogrid-videos');
+  end if;
+  if not exists (select 1 from pg_policies where schemaname = 'storage' and tablename = 'objects'
+                 and policyname = 'Service role upload geogrid videos') then
+    create policy "Service role upload geogrid videos"
+    on storage.objects for insert
+    with check (bucket_id = 'geogrid-videos');
+  end if;
+end $$;

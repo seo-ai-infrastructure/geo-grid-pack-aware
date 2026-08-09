@@ -46,7 +46,8 @@ RPA stuck at `task_issued` means the collect webhook never fired — check Verce
 For manual DuoPlus imports (`duoplus_rpa_fixed_template.json`), use the `grid_webhook` default on `geo-grid-rose.vercel.app` and replace `PASTE_SCAN_TOKEN_FOR_MANUAL_TEST` with that scan's token from Supabase.
 
 ## Go live
-1. Paste `supabase/geo_grid_v1.sql` into the ledger project's SQL Editor.
+1. Paste `supabase/geo_grid_v3.sql` into the ledger project's SQL Editor (idempotent; includes the
+   full v1 schema plus the Chrome pack / raw-harvest / video columns and the Storage bucket the code needs).
 2. Set env vars above → redeploy.
 3. Open the app → enter ADMIN_KEY → Launch scan (defaults are the South Beach client).
 4. Watch pins turn green on `/scan/<id>`.
