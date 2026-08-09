@@ -22,6 +22,29 @@ watchdog: requeues stalls, resumes scans; wired to the Resume button, callable b
 | LEDGER_ENABLED | unset for now; `true` once rl_debit params are aligned |
 | STRIPE_SECRET_KEY / STRIPE_WEBHOOK_SECRET | when switching on paid packs |
 
+## DuoPlus dev debugging (ADB ↔ command API)
+
+When ADB is enabled on a phone in the DuoPlus dashboard you get `IP:PORT`. Locally:
+
+```bash
+adb connect IP:PORT
+adb -s IP:PORT shell uiautomator dump /sdcard/uidump.xml
+adb pull /sdcard/uidump.xml
+python parse_dump_advanced.py uidump.xml --clickable-only
+```
+
+In production, `duoCommand(phoneId, '…')` in `lib/core.js` is the same as `adb shell …` — it hits DuoPlus `POST /cloudPhone/command`. Screen recording, file checks (`ls`, `cat`), and uploads all use this path. Optional local shortcut: set `DUOPLUS_ADB_ADDRS=dEW12=IP:PORT` so screenrecord can run via real adb when not on Vercel.
+
+| Goal | Local adb | Cloud (Vercel) |
+|---|---|---|
+| Run shell | `adb shell "cmd"` | `duoCommand(phoneId, "cmd")` |
+| UI dump (Maps app) | `adb shell uiautomator dump /sdcard/uidump.xml` | same command via `duoCommand`, then `cat` |
+| UI dump (Chrome / dynamic) | use DuoPlus dashboard Execute Command | `duoCommand(phoneId, 'DuoPlusDumpUI')` — not `adb shell DuoPlusDumpUI` |
+
+RPA stuck at `task_issued` means the collect webhook never fired — check Vercel logs for `/api/collect`, `PUBLIC_BASE_URL`, and the DuoPlus template webhook step. Screen recordings (`video_url` on each point) show what the phone was doing; UI dumps are for fixing selectors in the template, not wired into scans.
+
+For manual DuoPlus imports (`duoplus_rpa_fixed_template.json`), use the `grid_webhook` default on `geo-grid-rose.vercel.app` and replace `PASTE_SCAN_TOKEN_FOR_MANUAL_TEST` with that scan's token from Supabase.
+
 ## Go live
 1. Paste `supabase/geo_grid_v1.sql` into the ledger project's SQL Editor.
 2. Set env vars above → redeploy.

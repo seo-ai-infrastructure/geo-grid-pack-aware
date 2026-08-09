@@ -29,6 +29,14 @@ export default function ScanView() {
   const leafletMap = useRef(null);
   const markersRef = useRef({});
 
+  const mapReadyRef = useRef(false);
+
+  const refreshMapSize = () => {
+    const m = leafletMap.current;
+    if (!m) return;
+    m.invalidateSize({ animate: false });
+  };
+
   // Poll scan data & auto-tick running scans
   useEffect(() => {
     let alive = true;
@@ -50,14 +58,21 @@ export default function ScanView() {
     return () => { alive = false; };
   }, [id]);
 
-  // Leaflet map setup
+  // Leaflet map setup — init once when container is mounted
   useEffect(() => {
-    if (!data || leafletMap.current || typeof window === 'undefined') return;
+    if (!data || mapReadyRef.current || typeof window === 'undefined' || !mapRef.current) return;
 
-    const s = document.createElement('script');
-    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
-    s.onload = () => {
-      if (!window.L || leafletMap.current) return;
+    const leafletCssId = 'leaflet-css';
+    if (!document.getElementById(leafletCssId)) {
+      const css = document.createElement('link');
+      css.id = leafletCssId;
+      css.rel = 'stylesheet';
+      css.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
+      document.head.appendChild(css);
+    }
+
+    const initMap = () => {
+      if (!window.L || leafletMap.current || !mapRef.current) return;
       const L = window.L;
       const m = L.map(mapRef.current, { zoomControl: true, attributionControl: true })
         .setView([data.scan.center_lat, data.scan.center_lng], 12);
@@ -68,7 +83,6 @@ export default function ScanView() {
         maxZoom: 20
       }).addTo(m);
 
-      // Center marker
       L.marker([data.scan.center_lat, data.scan.center_lng], {
         icon: L.divIcon({
           className: '',
@@ -79,9 +93,39 @@ export default function ScanView() {
       }).addTo(m).bindTooltip(data.scan.gbp_name);
 
       leafletMap.current = m;
+      mapReadyRef.current = true;
       renderMarkers(L, m);
+      requestAnimationFrame(() => {
+        refreshMapSize();
+        requestAnimationFrame(refreshMapSize);
+      });
     };
+
+    if (window.L) {
+      initMap();
+      return;
+    }
+
+    const leafletScriptId = 'leaflet-js';
+    const existing = document.getElementById(leafletScriptId);
+    if (existing) {
+      existing.addEventListener('load', initMap, { once: true });
+      return;
+    }
+
+    const s = document.createElement('script');
+    s.id = leafletScriptId;
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+    s.onload = initMap;
     document.head.appendChild(s);
+  }, [data]);
+
+  // Keep map sized when the container changes
+  useEffect(() => {
+    if (!mapRef.current || typeof ResizeObserver === 'undefined') return;
+    const ro = new ResizeObserver(() => refreshMapSize());
+    ro.observe(mapRef.current);
+    return () => ro.disconnect();
   }, [data]);
 
   const renderMarkers = (L, m) => {
@@ -130,7 +174,7 @@ export default function ScanView() {
                 ? `<video controls playsinline width="100%" height="100%" style="object-fit:cover;width:100%;height:100%;display:block;background:#000;" preload="metadata">
                     <source src="${videoSrc}" type="video/mp4">
                   </video>`
-                : `<span style="color:#64748b;font-size:11px;padding:12px;text-align:center;">90s screen recording processing…<br><span style="font-size:10px;opacity:0.7;">No audio (Android screenrecord)</span></span>`}
+                : `<span style="color:#64748b;font-size:11px;padding:12px;text-align:center;">Screen recording processing…<br><span style="font-size:10px;opacity:0.7;">No audio (Android screenrecord, up to 180s)</span></span>`}
             </div>
 
             <!-- Home Indicator Bar -->
@@ -153,6 +197,7 @@ export default function ScanView() {
     if (bounds.length && !leafletMap.current._fitted) {
       m.fitBounds(bounds, { padding: [70, 70], maxZoom: 14 });
       leafletMap.current._fitted = true;
+      requestAnimationFrame(refreshMapSize);
     }
   };
 
@@ -176,7 +221,7 @@ export default function ScanView() {
 
   if (!data) {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', fontFamily: 'var(--mono)' }}>
+      <div id="app" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--mono)' }}>
         Loading scan grid…
       </div>
     );
@@ -210,7 +255,7 @@ export default function ScanView() {
   const grade = getGrade(score);
 
   return (
-    <>
+    <div id="app">
       <div className="topbar">
         <Link href="/" className="brand">
           <div className="glyph"><span className="dot"></span></div>
@@ -315,6 +360,6 @@ export default function ScanView() {
           </div>
         </aside>
       </div>
-    </>
+    </div>
   );
 }
